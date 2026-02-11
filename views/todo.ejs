@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📝 قائمة المهام</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1>📝 قائمة المهام</h1>
+
+  <!-- نموذج إضافة مهمة -->
+  <div class="todo-form">
+    <form method="post" action="/new">
+      <input name="title" type="text" placeholder="اسم المهمة" required>
+      <textarea name="desc" placeholder="وصف المهمة" required></textarea>
+      <button type="submit">إضافة مهمة</button>
+    </form>
+  </div>
+
+  <!-- قائمة المهام -->
+  <div class="todo-list">
+    <% tasks.forEach(task => { %>
+      <div class="task">
+        <h3><%= task.title %></h3>
+        <p><%= task.desc %></p>
+
+        <div class="task-actions">
+          <form method="post" action="/delete/<%= task._id %>">
+            <button type="submit" class="delete-btn">حذف مهمة</button>
+          </form>
+
+          <form method="get" action="/edit/<%= task._id %>">
+            <button type="submit" class="edit-btn">تعديل مهمة</button>
+          </form>
+
+          <form method="post" action="/complete/<%= task._id %>">
+            <button class="status-btn <%= task.completed ? 'done' : 'not-done' %>">
+              <%= task.completed ? "✔️ مكتملة" : "❌ غير مكتملة" %>
+            </button>
+          </form>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+
+</div>
+
+</body>
+</html>

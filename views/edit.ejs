@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✏️ تعديل المهمة</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1>✏️ تعديل المهمة</h1>
+
+  <form method="POST" action="/update/<%= Task._id %>" class="todo-form">
+    <input name="title" value="<%= Task.title %>" placeholder="اسم المهمة" required>
+    <textarea name="desc" placeholder="وصف المهمة" required><%= Task.desc %></textarea>
+    <button type="submit">حفظ التعديل</button>
+  </form>
+
+</div>
+
+</body>
+</html>
+
+
+
+
