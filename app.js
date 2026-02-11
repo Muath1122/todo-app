@@ -121,6 +121,6 @@ app.post("/complete/:id", async (req,res)=>{
 });
 
 
-app.listen(3000, ()=>{
-    console.log("server is running in port 3000")
+app.listen(3142, ()=>{
+    console.log("server is running in port 3142")
 })
